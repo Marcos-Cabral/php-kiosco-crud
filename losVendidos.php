@@ -1,6 +1,5 @@
-<?php  include("includes/header.php");
-include("db.php");
-?>
+<?php  include("includes/header.php")?>
+<?php include("db.php")?>
 <div class="container p-4 my-5">
     <h2>Lo mas vendido.</h2>
     <form action="" method="POST">

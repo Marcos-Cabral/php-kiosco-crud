@@ -1,6 +1,5 @@
-<?php  include("includes/header.php");
-include("db.php");
-?>
+<?php  include("includes/header.php")?>
+<?php include("db.php")?>
 <div class="container p-4 my-4">
     <form action="" method="POST">
         <h2>Filtrar ventas</h2>
