@@ -25,7 +25,7 @@
         $nombre=$_POST['nombre'];
         $precio=$_POST['precio'];
         $costo=$_POST['costo'];
-        $cantidad_stock=$_POST['cantidad'];
+        $cantidad_stock=$_POST['cantidad']; 
 
         $query="UPDATE productos set nombre='$nombre', precio='$precio',costo='$costo',cantidad_stock='$cantidad_stock' WHERE id=$id";
 

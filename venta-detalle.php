@@ -1,10 +1,11 @@
 <?php  include("includes/header.php");
 include("db.php");
 ?>
-<div class="container p-4">
+<div class="container p-4 my-4">
     <form action="" method="POST">
-        <div class="row">
-        <div class="form-group col-md-10">
+        <h2>Filtrar ventas</h2>
+        <div class="row">        
+        <div class="form-group col-md-9">           
             <select name="orden" class="form-control">
                 <option value="0">Filtra las ventas</option> 
                 <option value="1">Ventas mas recientes</option>
@@ -14,9 +15,11 @@ include("db.php");
             </select>
             
         </div>
-        <div class="col-md-2">
-            <input type="submit" name="guardar" value="Filtrar" class="btn btn-primary">                    
-        
+        <div class="col-md-3">
+            <input type="submit" name="guardar" value="Filtrar" class="btn btn-primary w-50">
+            <a href="vaciar_ventas.php" class="btn btn-danger">
+                Vaciar ventas
+            </a>        
         </div>
     </div>
     
@@ -26,15 +29,15 @@ include("db.php");
 
 
 
-                     <div class="row">
+                     <div class="row my-4">
                          <table class="table table-bordered my-4">        
                              <thead>
                                 <tr>   
                                     <th>codigo venta</th>
                                     <th>producto</th>
-                                    <th>cantidad_prod</th>    
-                                    <th>total</th>    
-                                    <th>fecha</th>  
+                                    <th>cantidad de productos</th>    
+                                    <th>total de venta</th>    
+                                    <th>fecha venta</th>  
                                 </tr>
                             </thead>
                             <tbody>

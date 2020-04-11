@@ -15,6 +15,7 @@
     <script defer src="../crud_php/font-awesome/js/solid.js"></script>
     <script defer src="../crud_php/font-awesome/js/fontawesome.js"></script>
     <link rel="stylesheet" href="style.css">
+     
     <title>Kiosco de carlitos</title>
   </head>
   <body>

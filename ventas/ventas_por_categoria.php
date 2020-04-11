@@ -1,7 +1,7 @@
 <thead>
     <tr>   
         <th class="th">Categoria</th>
-        <th class="th">Cantidad de ventas de los productos</th> 
+        <th class="th">Cantidad de ventas de la categoria</th> 
     </tr>
 </thead>
 <tbody>

@@ -1,4 +1,5 @@
 <?php  include("includes/header.php");?>
+
 <div class="container p-4 my-4">
                 <h2>Añadir venta</h2>
             <div class="row">
@@ -11,7 +12,7 @@
                         </button>
                     </div>
                 <?php session_unset(); } ?>
-                    <div class="card card-body">
+                    <!--<div class="card card-body">
                         <form id="form" action="venta.php" method="POST">
                                 <div class="form-group">
                                     <input type="text" name="nombre" placeholder="Ingrese nombre del producto" class="form-control" autofocus>
@@ -21,22 +22,50 @@
                                 </div>
                                     <input type="submit" name="guardar" value="Generar venta" class="btn btn-primary">                    
                         </form>                
-                    </div>
+                    </div>-->
+
+                 
+
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            
+            <div class="form-group">
+                                <select name="producto" class="form-control">
+                                    <option value="0">Seleccione producto:</option>
+                                    <?php
+                                        include("db.php");
+
+                                        $query="SELECT * FROM productos";
+                                        $query_cat= mysqli_query($conn,$query);
+                                        
+                                        while($valores = mysqli_fetch_array($query_cat)){
+                                            echo '<option name="producto" value="'.$valores[id].'" required>'.$valores[nombre].'</option>';
+                                        }
+
+                                    ?>
+                                </select>
+                                <div class="form-group my-5">
+                                    <input type="number" name="cantidad" placeholder="Ingrese cantidad" class="form-control" autofocus required>
+                                </div>
                 </div>
+             <input class="btn btn-primary my-2" type="submit" name="submit" value="Buscar producto"><br>
+        
+        </form>
+    </div>
                 <div class="col-md-8 my-5">
                
 
-<?php include("db.php");
+<?php 
 
-    if(isset($_POST['guardar'])){
-        $nombre_producto= $_POST['nombre'];
-        $query="SELECT * FROM productos where nombre like '$nombre_producto' ";
+    if(isset($_POST['submit'])){
+        $id_producto= $_POST['producto']; //ID -producto
+        $cantidad=$_POST['cantidad']; //CANTIDAD PRODUCTO                
+
+        $query="SELECT * FROM productos where id = $id_producto";    //busco producto por nombre 
 
         $resultado=mysqli_query($conn,$query);
         
         while($row= mysqli_fetch_array($resultado)){                       
-            $id_producto= $row['id'];                    //ID PRODUCTO
-            $cantidad=$_POST['cantidad'];              //CANTIDAD PRODUCTO                 
+                          
             $total= $cantidad*$row['precio'];           //TOTAL PRODUCTO
             $cantidad_stock=$row['cantidad_stock'];
 
@@ -75,7 +104,7 @@
                             </thead>
                             <tbody>
                                 <?php   
-                                    if(isset($_POST['guardar'])){
+                                    if(isset($_POST['submit'])){
                                        
                                         $registros = $conn->query("select id_detalle_venta, nombre,cantidad_prod,total, cantidad_stock from detalle_venta inner join productos as p on p.id=id_prod where id_venta like '$id_venta'");                                        
                                                     
